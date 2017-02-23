@@ -1,5 +1,7 @@
-path='C:\Users\chait\Documents\pca_images\image';
-training_set_length=4;
+%add general path name
+path='__';
+%add the number of images in the training set
+training_set_length=___;
 images=[];
 mean_image=[];
 for a = 1:training_set_length 

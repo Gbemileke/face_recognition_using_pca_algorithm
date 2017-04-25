@@ -1,7 +1,6 @@
-%add general path name
-path='__';
-%add the number of images in the training set
-training_set_length=___;
+#add the path name where images are stored
+path='--';
+training_set_length=4;
 images=[];
 mean_image=[];
 for a = 1:training_set_length 
@@ -11,12 +10,13 @@ for a = 1:training_set_length
    image=reshape(image,[],1);
    images = [images,image];
    if a==1
-       mean_image=image;
+       mean_image=image/training_set_length;
    else
-       mean_image=mean_image+image;
+       try_img=image/training_set_length;
+       mean_image=mean_image+try_img;
    end
 end
-mean_image=mean_image/training_set_length;
+%mean_image=mean_image/training_set_length;
 for a=1:training_set_length
     
     images(:,a)=images(:,a)-mean_image;
@@ -27,6 +27,7 @@ covariance=double(images_transpose)*double(images);
 [v,d]=eig(covariance);
 eigenfaces=[];
 for a=1:training_set_length
+
     eigenfaces=[eigenfaces,double(images)*double(v(:,a))];
 end
 sol=[];

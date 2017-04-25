@@ -1,4 +1,4 @@
-#add the path name where images are stored
+%add the path name where images are stored
 path='--';
 training_set_length=4;
 images=[];
